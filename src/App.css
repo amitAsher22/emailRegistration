@@ -23,19 +23,32 @@
 .row {
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  place-items: space-between;
+  justify-items: center;
   margin: auto;
   width: 50%;
+  text-align: center;
+
 
 
 }
 
 .activeColor {
-  padding: 0.5em;
-  height: 30px;
   width: 60%;
-  border: 2px solid rgb(229, 193, 16);
+  border: 1px solid black;
   cursor: pointer;
+  border-radius: 22px;
+  text-align: center;
+  background-color: rgb(229, 193, 16);
+  color: black;
+  font-size: 1.3rem;
+  font-size: larger;
+  padding: 0.4rem 0px;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.2s;
+
 
 }
 
@@ -52,6 +65,8 @@
   font-size: larger;
   font-weight: 200;
   padding: 0.5em;
+  border-radius: 22px;
+  border: 1px solid black;
 }
 
 .btn {
@@ -59,8 +74,10 @@
   background-color: blue;
   font-size: 1.5em;
   font-weight: 100;
-  border: none;
+
   padding: 0.5em;
+  border-radius: 22px;
+  border: 1px solid black;
 }
 
 .btn:hover {
