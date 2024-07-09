@@ -9,6 +9,8 @@ import "../App.css";
 import img1 from "../images/avatar.png";
 
 function Registionandlogin() {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [errors, setErrors] = useState({});
   const [login, setLogin] = useState(false);
   const history = useNavigate();
 
@@ -37,6 +39,21 @@ function Registionandlogin() {
           alert(err.code);
         });
     }
+    const validationError = {};
+    if (!formData.password.trim()) {
+      validationError.password = "password is required";
+    }
+    if (!formData.email.trim()) {
+      validationError.email = "email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      validationError.username = "user name is not valid";
+    }
+
+    setErrors(validationError);
+
+    if (Object.keys(validationError).length === 0) {
+      alert("form succesfull");
+    }
   };
 
   return (
@@ -63,14 +80,20 @@ function Registionandlogin() {
         onSubmit={(e) => handeleSubmit(e, login ? "signin" : "signup")}
         className="formSignIn"
       >
-        <input className="inputText" name="email" placeholder="email" />
+        <input
+          className="inputText"
+          name="email"
+          placeholder="example@gamil.com"
+        />
+        {errors.email && <span>{errors.email}</span>}
         <br />
         <input
           className="inputText"
           name="password"
           type="password"
-          placeholder="password"
+          placeholder="*****"
         />
+        {errors.password && <span>{errors.password}</span>}
         <br />
         <br />
         <button className="btn">{login ? "SignIn" : "Signup"}</button>
